@@ -43,16 +43,11 @@ class rss_parser():
             print("-----------------------------------------")
             print("Title: " + str(post['post_title']))
             print("Published: " + str(post['post_pubDate']))
-            print("Link: " + str(post['post_link']))
+            print("Link: " + str(post['post_link'])
             print("guid: " + str(post['post_guid']))
             print(' ')
             print(str(post['post_description']))
             print((post['post_comments']))
             print(' ')
             print(' ')
-if __name__ =='__main__':
-    #test = rss_parser('https://blog.acolyer.org/feed/')
-    test = rss_parser('http://feeds.bbci.co.uk/news/technology/rss.xml')
-    #test = rss_parser('https://www.nrk.no/ostafjells/buskerud/toppsaker.rss')
-    print(test.rss_version)
-    test.prettyPrint()
+
