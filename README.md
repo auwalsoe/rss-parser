@@ -9,7 +9,7 @@ Future supported formats (ordered by priority):
 * RDF
 ## Usage:
 ```
-from rss-parser import rss_parser
+from rss_parser.rss_parser import rss_parser
 rss = rss_parser("url_to_stream")
 rss.prettyPrint()
 ````
