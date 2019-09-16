@@ -41,13 +41,13 @@ class rss_parser():
     def prettyPrint(self):
         for post in self.feed_items:
             print("-----------------------------------------")
-            print("Title: " + str(post['post_title']))
-            print("Published: " + str(post['post_pubDate']))
-            print("Link: " + str(post['post_link'])
-            print("guid: " + str(post['post_guid']))
+            print("Title: {}".format(post['post_title']))
+            print("Published: {}".format(post['post_pubDate']))
+            print("Link: {}".format(post['post_link']))
+            print("guid: {}".format(post['post_guid']))
             print(' ')
-            print(str(post['post_description']))
-            print((post['post_comments']))
+            print("Description {}".format(post['post_description']))
+            print("Comments: {}".format(post['post_comments']))
             print(' ')
             print(' ')
 
