@@ -1,6 +1,7 @@
 import urllib.request
 import xml.etree.ElementTree as ET
-
+import dominate
+from dominate.tags import *
 class rss_parser():
     
     def __init__(self,rss_url):
@@ -51,3 +52,22 @@ class rss_parser():
             print(' ')
             print(' ')
 
+    def toHtml(self,filename):
+        doc = dominate.document(title = self.blog_title)
+        with doc.head:
+            link(rel = 'stylesheet', href = 'stylesheet.css')
+        with doc:
+            #with div():
+            #   attr(cls='body')
+              # for post in self.feed_items:
+               # h = ul()
+            with ul():
+                attr(cls = 'body')
+                for post in self.feed_items:
+                    li(str(post['post_title']))
+                    li(str(post['post_pubDate']))
+                    li(str(post['post_description']))
+        
+        html_file = open(filename+".html","w")
+        html_file.write(str(doc))
+        html_file.close()        
