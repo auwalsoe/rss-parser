@@ -1,11 +1,11 @@
-import urllib.request
+import requests
 import xml.etree.ElementTree as ET
 
 class rss_parser():
     
     def __init__(self,rss_url):
-        self.webUrl  = urllib.request.urlopen(rss_url)
-        self.data = self.webUrl.read().decode("iso-8859-1")
+        self.webUrl  = requests.get(rss_url)
+        self.data = self.webUrl.text
         self.root = ET.fromstring(self.data)
         self.feed_items = []
         self.get_version(self.root)
@@ -35,9 +35,9 @@ class rss_parser():
         
         if type(element_test) == type(None) or type(element_test.text) == type(None):
             print("empty")
-            return "empty".encode("iso-8859-1")
+            return "empty"
         else:
-            return element_test.text.encode("iso-8859-1")
+            return element_test.text
     def prettyPrint(self):
         for post in self.feed_items:
             print("-----------------------------------------")
